@@ -75,9 +75,9 @@ pipeline {
           # Ensure Python is installed
           python --version
 
-          # Run Python code for addition and subtraction
+          # Create Python script for addition and subtraction with correct indentation
           echo "Running Python Program for Addition and Subtraction"
-          echo '
+          cat <<EOF > math.py
           # Define two numbers
           num1 = 10  # First number
           num2 = 5   # Second number
@@ -89,7 +89,7 @@ pipeline {
           # Display the results
           print("Addition:", sum)
           print("Subtraction:", difference)
-          ' > math.py
+          EOF
 
           # Run the Python program
           python math.py
