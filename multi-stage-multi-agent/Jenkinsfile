@@ -6,23 +6,33 @@ pipeline {
         docker { image 'maven:3.8.1-adoptopenjdk-11' }
       }
       steps {
-        sh '''sudo apt install maven -y
-mvn --version
-public class SimpleMath {
-    public static void main(String[] args) {
-        int num1 = 10; // First number
-        int num2 = 5;  // Second number
+        sh '''
+          # Ensure Maven is installed
+          mvn --version
+          
+          # Java code
+          echo "Running Java Program for Addition and Subtraction"
+          echo '
+          public class SimpleMath {
+              public static void main(String[] args) {
+                  int num1 = 10; // First number
+                  int num2 = 5;  // Second number
 
-        // Perform addition and subtraction
-        int sum = num1 + num2;
-        int difference = num1 - num2;
+                  // Perform addition and subtraction
+                  int sum = num1 + num2;
+                  int difference = num1 - num2;
 
-        // Display the results
-        System.out.println("Addition: " + sum);
-        System.out.println("Subtraction: " + difference);
-    }
-}
-'''
+                  // Display the results
+                  System.out.println("Addition: " + sum);
+                  System.out.println("Subtraction: " + difference);
+              }
+          }
+          ' > SimpleMath.java
+
+          # Compile and run the Java program
+          javac SimpleMath.java
+          java SimpleMath
+        '''
       }
     }
     stage('Front-end') {
@@ -30,22 +40,30 @@ public class SimpleMath {
         docker { image 'node:16-alpine' }
       }
       steps {
-        sh '''sudo apt install nodejs
-sudp apt install npm
+        sh '''
+          # Ensure Node.js and npm are installed
+          node --version
+          npm --version
 
-// Define two numbers
-const num1 = 10; // First number
-const num2 = 5;  // Second number
+          # Run Node.js code
+          echo "Running Node.js Program for Addition and Subtraction"
+          echo "
+          // Define two numbers
+          const num1 = 10; // First number
+          const num2 = 5;  // Second number
 
-// Perform addition and subtraction
-const sum = num1 + num2;
-const difference = num1 - num2;
+          // Perform addition and subtraction
+          const sum = num1 + num2;
+          const difference = num1 - num2;
 
-// Display the results
-console.log(`Addition: ${sum}`);
-console.log(`Subtraction: ${difference}`);
+          // Display the results
+          console.log('Addition:', sum);
+          console.log('Subtraction:', difference);
+          " > math.js
 
-'''
+          # Run the Node.js program
+          node math.js
+        '''
       }
     }
   }
