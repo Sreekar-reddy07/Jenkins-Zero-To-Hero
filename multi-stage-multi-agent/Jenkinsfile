@@ -77,7 +77,7 @@ pipeline {
 
           # Run Python code for addition and subtraction
           echo "Running Python Program for Addition and Subtraction"
-          echo "
+          echo '
           # Define two numbers
           num1 = 10  # First number
           num2 = 5   # Second number
@@ -87,9 +87,9 @@ pipeline {
           difference = num1 - num2
 
           # Display the results
-          print('Addition:', sum)
-          print('Subtraction:', difference)
-          " > math.py
+          print("Addition:", sum)
+          print("Subtraction:", difference)
+          ' > math.py
 
           # Run the Python program
           python math.py
