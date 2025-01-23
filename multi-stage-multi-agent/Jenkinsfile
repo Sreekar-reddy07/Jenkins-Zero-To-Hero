@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
   agent none
   stages {
     stage('Testing for Maven') {
@@ -15,8 +15,8 @@ pipeline {
           echo '
           public class SimpleMath {
               public static void main(String[] args) {
-                  int num1 = 10; // First number
-                  int num2 = 5;  // Second number
+                  int num1 = 88; // First number
+                  int num2 = 12;  // Second number
 
                   // Perform addition and subtraction
                   int sum = num1 + num2;
@@ -49,8 +49,8 @@ pipeline {
           echo "Running Node.js Program for Addition and Subtraction"
           echo "
           // Define two numbers
-          const num1 = 10; // First number
-          const num2 = 5;  // Second number
+          const num1 = 56; // First number
+          const num2 = 6;  // Second number
 
           // Perform addition and subtraction
           const sum = num1 + num2;
@@ -79,8 +79,8 @@ pipeline {
           echo "Running Python Program for Addition and Subtraction"
 
           # Create math.py with proper indentation
-          echo "num1 = 10  # First number" > math.py
-          echo "num2 = 5   # Second number" >> math.py
+          echo "num1 = 100  # First number" > math.py
+          echo "num2 = 72   # Second number" >> math.py
           echo "" >> math.py
           echo "sum = num1 + num2" >> math.py
           echo "difference = num1 - num2" >> math.py
