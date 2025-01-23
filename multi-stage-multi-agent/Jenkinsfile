@@ -66,5 +66,13 @@ pipeline {
         '''
       }
     }
+    stage('Testing for python') {
+      agent {
+        docker { image 'python:latest' }
+      }
+      steps {
+        sh 'python --version'
+      }
+    }
   }
 }
