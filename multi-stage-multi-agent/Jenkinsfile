@@ -68,7 +68,7 @@ pipeline {
     }
     stage('Testing for python') {
       agent {
-        docker { image 'python:latest' }
+        docker { image 'python:3.13.1' }
       }
       steps {
         sh 'python --version'
