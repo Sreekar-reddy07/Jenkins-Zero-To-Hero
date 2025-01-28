@@ -23,8 +23,8 @@ pipeline {
     stage('Static Code Analysis') {
       environment {
         // Updated to use host.docker.internal for Docker Desktop/WSL2 or use host network for Linux
-        //SONAR_URL = "http://host.docker.internal:9000/"  // Use host.docker.internal if using Docker Desktop/WSL2
-        SONAR_URL = "http://localhost:9000/"  // Alternatively, use localhost for Linux or direct access from Docker
+        SONAR_URL = "http://host.docker.internal:9000/"  // Use host.docker.internal if using Docker Desktop/WSL2
+        //SONAR_URL = "http://localhost:9000/"  // Alternatively, use localhost for Linux or direct access from Docker
       }
       steps {
         withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
