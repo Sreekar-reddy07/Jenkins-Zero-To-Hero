@@ -33,6 +33,7 @@ pipeline {
           # shared library for node.js
           Nodejs()
           > math.js
+          
           # Run the Node.js program
           node math.js
         '''
@@ -49,6 +50,7 @@ pipeline {
           
           # shared library for python
           Python()
+          >> math.py
           
           # Run the Python program
           python math.py
