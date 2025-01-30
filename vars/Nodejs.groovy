@@ -15,6 +15,5 @@ def nodejs() {
           console.log('Addition:', sum);
           console.log('Subtraction:', difference);
           " 
-          > math.js
         '''
 }
