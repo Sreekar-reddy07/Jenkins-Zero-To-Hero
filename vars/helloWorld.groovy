@@ -1,4 +1,4 @@
-def call() {
+def python() {
      sh '''
           # Ensure Python is installed
           python --version
