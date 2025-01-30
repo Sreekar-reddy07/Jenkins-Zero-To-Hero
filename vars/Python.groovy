@@ -14,6 +14,7 @@ def python() {
           echo "difference = num1 - num2" >> math.py
           echo "" >> math.py
           echo "print('Addition:', sum)" >> math.py
-          echo "print('Subtraction:', difference)" >> math.py
+          echo "print('Subtraction:', difference)" 
+          >> math.py
         '''
 }
