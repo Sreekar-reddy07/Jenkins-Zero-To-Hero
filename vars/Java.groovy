@@ -1,8 +1,5 @@
 def java() {
         sh '''
-          # Ensure Maven is installed
-          mvn --version
-          
           # Java code
           echo "Running Java Program for Addition and Subtraction"
           echo '
