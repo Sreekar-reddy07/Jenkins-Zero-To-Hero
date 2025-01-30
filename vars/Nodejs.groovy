@@ -1,9 +1,5 @@
 def nodejs() {
         sh '''
-          # Ensure Node.js and npm are installed
-          node --version
-          npm --version
-
           # Run Node.js code
           echo "Running Node.js Program for Addition and Subtraction"
           echo "
