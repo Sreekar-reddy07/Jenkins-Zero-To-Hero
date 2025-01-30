@@ -1,4 +1,5 @@
- pipeline {
+@Library("my-shared-library") _
+pipeline {
   agent none
   stages {
     stage('Testing for Maven') {
@@ -10,25 +11,9 @@
           # Ensure Maven is installed
           mvn --version
           
-          # Java code
-          echo "Running Java Program for Addition and Subtraction"
-          echo '
-          public class SimpleMath {
-              public static void main(String[] args) {
-                  int num1 = 88; // First number
-                  int num2 = 12;  // Second number
-
-                  // Perform addition and subtraction
-                  int sum = num1 + num2;
-                  int difference = num1 - num2;
-
-                  // Display the results
-                  System.out.println("Addition: " + sum);
-                  System.out.println("Subtraction: " + difference);
-              }
-          }
-          ' > SimpleMath.java
-
+          # the shared library for java
+          Java()
+          
           # Compile and run the Java program
           javac SimpleMath.java
           java SimpleMath
@@ -45,22 +30,9 @@
           node --version
           npm --version
 
-          # Run Node.js code
-          echo "Running Node.js Program for Addition and Subtraction"
-          echo "
-          // Define two numbers
-          const num1 = 56; // First number
-          const num2 = 6;  // Second number
-
-          // Perform addition and subtraction
-          const sum = num1 + num2;
-          const difference = num1 - num2;
-
-          // Display the results
-          console.log('Addition:', sum);
-          console.log('Subtraction:', difference);
-          " > math.js
-
+          # shared library for node.js
+          Nodejs()
+          
           # Run the Node.js program
           node math.js
         '''
@@ -74,20 +46,10 @@
         sh '''
           # Ensure Python is installed
           python --version
-
-          # Create Python script for addition and subtraction
-          echo "Running Python Program for Addition and Subtraction"
-
-          # Create math.py with proper indentation
-          echo "num1 = 100  # First number" > math.py
-          echo "num2 = 72   # Second number" >> math.py
-          echo "" >> math.py
-          echo "sum = num1 + num2" >> math.py
-          echo "difference = num1 - num2" >> math.py
-          echo "" >> math.py
-          echo "print('Addition:', sum)" >> math.py
-          echo "print('Subtraction:', difference)" >> math.py
-
+          
+          # shared library for python
+          Python()
+          
           # Run the Python program
           python math.py
         '''
