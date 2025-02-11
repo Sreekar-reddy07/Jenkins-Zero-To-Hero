@@ -1,4 +1,0 @@
-print fuck off
-#k
-#\
-#
